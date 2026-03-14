@@ -40,34 +40,17 @@ public class Admin extends Person{
         this.permissions = permissions;
     }
 
-
-    //metodos Propios
-
-
     @Override
-    public <T> void createUser(T person) {
-        super.createUser(person);
-    }
-
-    @Override
-    public Person updatePerson(Person person) {
-        return super.updatePerson(person);
-    }
-
-    @Override
-    public List<Person> getAllPersons() {
-        return super.getAllPersons();
-    }
-
-
-    @Override
-    public Person getPersonById(int id) {
-        return super.getPersonById(id);
-    }
-
-
-    @Override
-    public void deletePerson(int id) {
-        super.deletePerson(id);
+    public String toString() {
+        return "Admin{" +
+                "permissions='" + permissions + '\'' +
+                ", sc=" + sc +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

@@ -2,6 +2,7 @@ package storeapp.userinterface;
 
 import storeapp.domain.Customer;
 import storeapp.services.CustumerServiceImpl;
+import storeapp.view.AdminView;
 import storeapp.view.CustomerView;
 
 import java.util.Scanner;
@@ -11,9 +12,11 @@ public class MenuApp {
 
     Scanner sc = new Scanner(System.in);
     private final CustomerView customerView;
+    private final AdminView adminView;
 
-    public MenuApp(CustomerView customerView) {
+    public MenuApp(CustomerView customerView, AdminView adminView) {
         this.customerView = customerView;
+        this.adminView = adminView;
     }
 
     public void showMainMenu(){
@@ -33,7 +36,17 @@ public class MenuApp {
             switch (option){
                 case 1:
                     System.out.println("Registrar Usuario");
-                    customerView.createCustomer();
+                    System.out.println("1. Cliente 2. Administrador");
+                    int userType = sc.nextInt();
+                    sc.nextLine();
+                    if (userType == 1){
+                        customerView.createCustomer();
+                    }else if(userType == 2){
+                        adminView.createAdmin();
+                    }else{
+                        System.out.println("Opcion no valida, por favor seleccione una opcion valida");
+                    }
+
                     break;
                 case 2:
                     System.out.println("Iniciar Sesion");
